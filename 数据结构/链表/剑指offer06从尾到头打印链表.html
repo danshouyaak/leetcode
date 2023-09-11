@@ -1,0 +1,78 @@
+<script>
+
+// Definition for singly-linked list.
+function ListNode(val) {
+    this.val = val;
+    this.next = null;
+}
+
+/**
+ * @param {ListNode} head
+ * @return {number[]}
+ */
+// var reversePrint = function(head) {
+//     if(head == null )return null;
+//     if(head.next == null)return head;
+
+//     let arr = [];
+//     let newhead = reversePrint(head.next);
+//     head.next.next = head;
+//     head.next = null;
+//     let cur = newhead;
+//     arr.push(cur.val);
+//     cur = cur.next;
+//     return arr;
+// };
+
+
+///////////////////递归函数
+// var reversePrint = function(head) {
+//     if(head == null )return [];
+//     
+
+//     let newhead = reversePrint(head.next);
+//     newhead.push(head.val);
+
+//     return newhead;
+// }
+//////           一次循环，unshift倒序添加
+// var reversePrint = function(head) {
+//     // if(head == null )return [];
+//     // if(head.next == null)return head;
+
+//     let cur = head;
+
+//     let arr = [];
+//     while(cur){
+//         arr.unshift(cur.val);
+//         cur = cur.next;
+//     }
+//     return arr;
+// }
+////////////////
+var reversePrint = function(head){
+     // if(head == null )ret
+    // if(head.next == null
+    let cur = head;
+    let arr = [];
+    while(cur){
+        arr.push(cur.val);
+        cur = cur.next;
+    }
+    return arr.reverse();
+}
+   
+// var list = new ListNode(h);
+//  var h = {
+//     val:1,
+//     next:{
+//         val:2,
+//         next:{
+//             val:3,
+//             next:null
+//         }
+//     }
+//  }
+//  var r= reversePrint(h);
+//  console.log(r);
+</script>

@@ -1,0 +1,40 @@
+<script>
+
+//Definition for singly-linked list.
+function ListNode(val, next) {
+    this.val = (val===undefined ? 0 : val)
+    this.next = (next===undefined ? null : next)
+}
+
+/**
+ * @param {ListNode} list1
+ * @param {ListNode} list2
+ * @return {ListNode}
+ */
+//  var reverseList = function(head) {
+//             var arr = [];
+//             var cur = this.head;
+//             if(head === null) return null;
+//             while(cur.next){
+//                 arr.push(cur.val);
+//             }
+//             cur = this.head;
+//             for(let i  = arr.length-1 ; i >= 0 ; i--){
+//                 cur.val = arr[i];
+//                 cur = cur.next;
+//             }
+//             return head.next;
+// };
+//                  递归法
+   var reverseList = function(head) {
+        if(head == null || head.next == null) return head;
+
+        let newlinklist = reverseList(head.next);
+
+        head.next.next = head;
+        head.next = null;
+
+        return newlinklist;
+       
+}
+</script>

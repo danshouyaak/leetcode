@@ -1,0 +1,33 @@
+<script>
+
+//Definition for singly-linked list.
+function ListNode(val, next) {
+    this.val = (val===undefined ? 0 : val)
+    this.next = (next===undefined ? null : next)
+}
+
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var swapPairs = function(head) {
+            // if(head === null) return null;
+            // if(head.next === null) return head;
+            let newhead = new ListNode(0, head), temp = newhead;
+            //var newhead = head;
+            
+
+            while(temp.next && temp.next.next){
+                let cur = temp.next.next;//先把后面的地址值记录下来
+                let pre = temp.next;//同理
+
+                pre.next = cur.next;
+                cur.next = pre;
+                temp.next = cur;
+
+                temp = pre;//前进一步
+            }
+
+            return newhead.next;
+};
+</script>

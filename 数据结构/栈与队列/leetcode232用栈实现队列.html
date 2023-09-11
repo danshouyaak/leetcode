@@ -1,0 +1,54 @@
+<script>
+    var MyQueue = function() {
+        this.is = [];/// 进栈
+        this.os = [];/// 出栈
+};
+
+/** 
+ * @param {number} x
+ * @return {void}
+ */
+MyQueue.prototype.push = function(x) {
+            this.is.push(x);
+};
+
+/**
+ * @return {number}
+ */
+MyQueue.prototype.pop = function() {//返回位于栈顶的元素，并在进程中删除它
+            if(!this.os.length){
+                while(this.os.length){
+                    this.os.push(this.is.pop())
+                }
+            }
+            return this.os.pop()
+};
+
+/**
+ * @return {number}
+ */
+MyQueue.prototype.peek = function() {
+            if(!this.os.length){
+                while(this.is.length){
+                    this.os.push(this.os.pop())
+                }
+            }
+            return this.os[this.os.length - 1]
+};//查询顶部元素
+
+/**
+ * @return {boolean}
+ */
+MyQueue.prototype.empty = function() {
+            return !this.is.length && !this.os.length;
+};///检查是否为空
+
+/**
+ * Your MyQueue object will be instantiated and called as such:
+ * var obj = new MyQueue()
+ * obj.push(x)
+ * var param_2 = obj.pop()
+ * var param_3 = obj.peek()
+ * var param_4 = obj.empty()
+ */
+</script>

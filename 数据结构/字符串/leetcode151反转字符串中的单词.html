@@ -1,0 +1,63 @@
+/**
+ * @param {string} s
+ * @return {string}
+ */
+
+
+
+ <script>
+
+//1.通过正侧
+//   var reverseWords = function(s) {
+//         let sarr = s.trim().split(/\s+/);////     /\s+/匹配任何表达式   trim（） 去除首尾空格
+//         //
+//         let i = 0;
+//         let j = sarr.length  - 1 ;
+//         for ( ; i < j ; i++ , j--){
+//          let temp = sarr[i];
+//          sarr[i] = sarr[j];
+//          sarr[j] = sarr[i];
+//         }
+//
+//      return sarr.join(' ');
+// }
+
+
+// var reverseWords = function(s){
+//             let sl = s.split(' ');//遇到空格就把字符串分开;
+//             let arr = [];
+//             for(let i  = sl.length - 1 ; i >= 0  ; i --){
+//                 if(sl[i] != ''){
+//                     arr.push(sl[i]);
+//                 }
+//             }
+//             return arr.join(' ').trim();//每一个字符串加空格，然后删除首尾多余的空格
+
+// }
+
+// var reverseWords = function(s) {
+//     let sarr = s.trim().split(/\s+/);
+//     let i = 0,
+//         j = sarr.length-1;
+    
+//     for ( ;i<=j; i++, j--) {
+//         let tmp = sarr[i];
+//         sarr[i] = sarr[j];
+//         sarr[j] = tmp;
+//     }//可用reverse()代替.
+
+//     return sarr.join(' ');//return sarr.reverse().join(' ');
+// };
+var reverseWords = function(s) {
+ let s1 = s.split(' ')
+        let arr = []
+        for(let i =s1.length-1;i>=0;i--){
+            
+            if(s1[i]!==''){
+                arr.push(s1[i])
+            }
+        }
+       return arr.join(' ').trim()
+};
+
+ </script>

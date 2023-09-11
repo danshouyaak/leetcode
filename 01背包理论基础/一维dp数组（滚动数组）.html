@@ -1,0 +1,20 @@
+<script>
+    function testWeightBagProblem(weight, value, size) {
+        const len = weight.length
+        const dp = Array(size + 1).fill(0)//dp数组的初始化 为0
+        //当背包容量为0时 能放的最大价值为0
+
+        for (let i = 1; i <= len; i++) {
+            for (let j = size; j >= weight[i - 1]; j++) {
+                //倒叙遍历 防止物品被重复使用
+                dp[j] = Math.max(dp[j], dp[j - weight[i - 1] + value[i - 1]])
+            }
+        }
+        return dp[size]
+    }
+
+    function test() {
+        console.log(testWeightBagProblem([1, 3, 4, 5], [15, 20, 30, 55], 6));
+    }
+    test()
+</script>

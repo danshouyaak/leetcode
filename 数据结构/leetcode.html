@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+       <script>
+        
+  // Definition for singly-linked list.
+//    function ListNode(val, next) {
+//        this.val = (val===undefined ? 0 : val)
+//        this.next = (next===undefined ? null : next)
+//   }
+ 
+//           var addTwoNumbers = function(l1, l2) {
+//             let dummy = new ListNode();
+//             let  curr = dummy;
+//             let carry = 0;
+
+//             while(l1 !== null || l2 !== null){
+//                 let sum = 0;
+//                 if(l1 != null){
+//                     sum += l1.val;
+//                     l1 = l1.next;
+//                 }
+//                 if(l2 != null){
+//                     sum += l2.val;
+//                     l2 = l2.next;
+//                 }
+
+//                 sum += carry;
+//                 curr.next = new ListNode(sum % 10);
+//                 carry  = Math.floor(sum / 10);
+//                 curr = curr.next;
+//             }
+
+//             if(carry > 0){
+//                 curr.next  =new ListNode(carry);
+//             }
+
+//             return dummy.next;
+// };
+// var temp = addTwoNumbers(l1,l2);
+// var l1 = [2,4,3];
+// var l2 = [5,6,4];
+
+
+//203
+
+//Definition for singly-linked list.
+// function ListNode(val, next) {
+//     this.val = (val===undefined ? 0 : val)
+//     this.next = (next===undefined ? null : next)
+// }
+
+// // @param {ListNode} head
+// // @param {number} val
+// // @return {ListNode}
+
+//  var removeElements = function(head, val) {
+//     var ret = new ListNode(0,head);
+//     var cur = ret;
+
+//     while(cur.next){
+//         if(cur.next.val === val){
+//             cur.next = cur.next.next;
+//             continue;
+//         }
+//         cur = cur.next;
+//     }
+//     return ret.next;
+// };
+//  var link = new ListNode(h,v);
+ 
+// var  v = 2;
+// //var h = [1,2,6,3,4,5,6];
+// var h ={
+//     val :1,
+//     next:{
+//         val:2,
+//         next:{
+//             val:6,
+//             next:{
+//                 val:3,
+//                 next:{
+//                     val:4,
+//                     next:{
+//                         val:5,
+//                         next:{
+//                             val:6,
+//                             next:null
+//                         }
+//                     }
+                    
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// //  console.log(removeElements(h,v));
+// alert(removeElements(h,v))
+
+//707
+class LinkNode{
+   constructor(val,next){
+                this.val = val;
+                this.next = next;
+    }
+}
+var MyLinkedList = function() {
+            this._size = 0;
+            this._tail =null;
+            this.head = null;
+            // 单链表 储存头尾节点 和 节点数量
+};
+
+/** 
+ * @param {number} index
+ * @return {number}
+ */
+MyLinkedList.prototype.getNode = function(index){
+            if(index < 0 || index >= this._size)return null;
+
+            var cur = new LinkNode(0,this._head);//创建虚拟头节点
+            while(index-- >= 0){
+                cur = cur.next;
+            }
+
+return cur;
+
+}
+MyLinkedList.prototype.get = function(index) {
+            if(index < 0 || index >= this._size) return -1;
+          
+            return this.getNode(index).val;
+};
+
+/** 
+ * @param {number} val
+ * @return {void}
+ */
+MyLinkedList.prototype.addAtHead = function(val) {
+     var newNode = new Node(val);
+     
+     this.head = newNode;
+     
+     this._size++;
+    //  if(!this._tail){
+    //     this._tail = newNode;
+    //  }
+
+};
+
+/** 
+ * @param {number} val
+ * @return {void}
+ */
+MyLinkedList.prototype.addAtTail = function(val) {
+            var cur = this.head;
+            var newNode = new Node(val);
+            while(cur.next){
+                cur = cur.next;
+            }
+            cur.next = newNode;
+            this._size++;
+
+};
+
+/** 
+ * @param {number} index 
+ * @param {number} val
+ * @return {void}
+ */
+MyLinkedList.prototype.addAtIndex = function(index, val) {
+            if(index >= this._size) return;
+            if(index <= 0){
+                this.addAtHead(val);
+                return;
+            }
+            if(index === this._size){
+                this.addAtTail(val);
+                return;
+            }
+
+            var newNode = this.getNode(index -1);
+            newNode.next = new LinkNode(val,newNode.next);
+            this._size++;
+};
+
+/** 
+ * @param {number} index
+ * @return {void}
+ */
+MyLinkedList.prototype.deleteAtIndex = function(index) {
+
+};
+
+/**
+ * Your MyLinkedList object will be instantiated and called as such:
+ * var obj = new MyLinkedList()
+ * var param_1 = obj.get(index)
+ * obj.addAtHead(val)
+ * obj.addAtTail(val)
+ * obj.addAtIndex(index,val)
+ * obj.deleteAtIndex(index)
+ */
+
+
+
+
+    </script>  
+
+    </body>
+   
+
+</html>
